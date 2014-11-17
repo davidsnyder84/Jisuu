@@ -1,0 +1,16 @@
+
+
+read all files in a directory
+
+read [front] [back]
+
+
+
+
+
+find duplicate entries
+!!!find duplicate [fronts] with differing [backs]
+
+!count unique kanji
+!!!make list of unique kanji
+
