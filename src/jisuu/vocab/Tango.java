@@ -35,11 +35,6 @@ public class Tango implements Comparable<Tango>{
 
 	
 	
-	//mutators
-//	public void setFileOrigin(String fileOrigin){
-//		mFileOrigin = fileOrigin;
-//	}
-	
 	
 	
 	
@@ -56,6 +51,7 @@ public class Tango implements Comparable<Tango>{
 		//return true if the cards have the same front, but different backs
 		return (mFront.equals(other.mFront) && !mBack.equals(other.mBack));
 	}
+	
 	
 	
 	

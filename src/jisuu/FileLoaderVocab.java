@@ -10,7 +10,7 @@ import java.util.Scanner;
 import jisuu.vocab.Tango;
 import jisuu.vocab.TangoDictionary;
 
-public class FileLoader {
+public class FileLoaderVocab {
 	
 	
 	public static final String VOCABLIST_DIR = "vocabLists";
