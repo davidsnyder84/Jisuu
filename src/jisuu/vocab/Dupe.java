@@ -1,4 +1,4 @@
-package jisuu.vocab.dupe;
+package jisuu.vocab;
 
 import jisuu.vocab.Tango;
 

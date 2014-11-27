@@ -3,7 +3,7 @@ package jisuu.vocab;
 import java.util.ArrayList;
 import java.util.List;
 
-import jisuu.vocab.dupe.Dupe;
+import jisuu.vocab.Dupe;
 
 public class DupeFinder {
 	

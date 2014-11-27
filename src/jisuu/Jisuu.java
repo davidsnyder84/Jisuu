@@ -13,7 +13,7 @@ public class Jisuu {
 	
 	
 	public Jisuu(){
-		
+		mWindow = new JisuuWindow();
 	}
 	
 	
@@ -32,6 +32,12 @@ public class Jisuu {
 		
 		//load story
 		story = FileLoaderStory.loadStoryFromFile();
+		
+		
+		//if null, just use an empty dictionary/story
+		if (dict == null) dict = new TangoDictionary();
+		if (story == null) story = new StoryReport();
+		
 		
 		
 		//find new kanji (kanji which are in the story. but not in the dictionary)
@@ -69,6 +75,16 @@ public class Jisuu {
 		
 		System.out.println("\n\n~~~~~Unkown kanji (absent from the dictionaries): ");
 		System.out.println(unkownKanji.getReport());
+		
+		
+		
+		//display in GUI
+		mWindow.displayInfo(dict, story, dictKanji, storyKanji, unkownKanji);
+		mWindow.setVisible(true);
+		
+		
+		System.out.println(dict.getFileStats());
+		System.out.println(story.getFileStats());
 		
 	}
 	
