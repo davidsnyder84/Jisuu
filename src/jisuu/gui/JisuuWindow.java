@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -22,7 +21,6 @@ public class JisuuWindow extends JFrame{
 	private static final int WINDOW_TOP_BORDER_SIZE = 26;
 	private static final int WINDOW_SIDE_BORDER_SIZE = 2;
 	private static final int WINDOW_BOTTOM_BORDER_SIZE = 2;
-//	private static final int WINDOW_MENU_SIZE = 23;
 
 	private static final int WINDOW_BOUND_WIDTH = WINDOW_WIDTH + 2*WINDOW_SIDE_BORDER_SIZE;
 	private static final int WINDOW_BOUND_HEIGHT = WINDOW_HEIGHT + WINDOW_TOP_BORDER_SIZE + WINDOW_BOTTOM_BORDER_SIZE;
@@ -31,7 +29,7 @@ public class JisuuWindow extends JFrame{
 	
 	
 	
-	private static final String WINDOW_TITLE = "Jisuu - Main Menu";
+	private static final String WINDOW_TITLE = "Jisuu";
 	private static final String TITLE_KANJI_DICT = "Dictionary Kanji:", TITLE_KANJI_STORY = "Story Kanji:", TITLE_KANJI_UNK = "Unknown Kanji:";
 	
 	
@@ -57,9 +55,6 @@ public class JisuuWindow extends JFrame{
 	public JisuuWindow() {
 		
 		
-		
-		
-		
 		setBounds(100, 100, WINDOW_BOUND_WIDTH, WINDOW_BOUND_HEIGHT);
 		setTitle(WINDOW_TITLE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,12 +65,6 @@ public class JisuuWindow extends JFrame{
 		setContentPane(contentPane);
 		
 		contentPane.setLayout(null);
-		
-		
-		
-		
-		
-		
 		
 		
 		
@@ -95,9 +84,6 @@ public class JisuuWindow extends JFrame{
 		contentPane.add(panStats);
 		contentPane.add(panKanjis);
 		
-		
-		
-		
 		displayInfo(null, null, null, null, null);
 	}
 	
@@ -106,14 +92,9 @@ public class JisuuWindow extends JFrame{
 	
 	public void displayInfo(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
 		
-		
-		
 		panDict.updateInfo(dict);
 		panStats.updateInfo(dict, story);
 		panKanjis.updateInfo(dictKanji, storyKanji, unkownKanji);
-		
-		
-		//update window, etc
 	}
 	
 	
@@ -145,7 +126,6 @@ public class JisuuWindow extends JFrame{
 			setLayout(null);
 			
 			
-			
 			panDictKanji.setLocation(0, 0);
 			panStoryKanji.setLocation(KanjiSetPanel.WIDTH, 0);
 			panUnkKanji.setLocation(KanjiSetPanel.WIDTH * 2, 0);
@@ -166,8 +146,6 @@ public class JisuuWindow extends JFrame{
 			panDictKanji.updateInfo(TITLE_KANJI_DICT, dictKanji);
 			panStoryKanji.updateInfo(TITLE_KANJI_STORY, storyKanji);
 			panUnkKanji.updateInfo(TITLE_KANJI_UNK, unkownKanji);
-			
-			//update
 		}
 	}
 	
@@ -189,7 +167,7 @@ public class JisuuWindow extends JFrame{
 		private static final long serialVersionUID = 3900762501958533847L;
 		
 		private static final int WIDTH = WINDOW_WIDTH, HEIGHT = 150;
-		private static final int STATPANE_WIDTH = WIDTH, STATPANE_HEIGHT = HEIGHT;
+		private static final int STATPANE_WIDTH = WIDTH - 2, STATPANE_HEIGHT = HEIGHT;
 
 		protected TangoDictionary pDict;
 		protected StoryReport pStory;
@@ -221,9 +199,6 @@ public class JisuuWindow extends JFrame{
 			
 			
 			txtStats.setText(pDict.getFileStats() + "\n" + pStory.getFileStats());
-			
-			
-			//update
 		}
 	}
 	
@@ -302,7 +277,6 @@ public class JisuuWindow extends JFrame{
 			setLayout(null);
 			
 			
-			final JLabel lblKanNumLabel = new JLabel("Number of Kanji: ");
 			
 			
 			
@@ -311,17 +285,17 @@ public class JisuuWindow extends JFrame{
 			
 			
 			
-			lblKanNumLabel.setBackground(COLOR_TRANSPARENT);
+			lblTitle.setBackground(COLOR_TRANSPARENT);
 			lblNumKanji.setBackground(COLOR_TRANSPARENT);
 			
-			lblKanNumLabel.setBounds(10, 2, 130, 20);
+			lblTitle.setBounds(10, 2, 130, 20);
 			lblNumKanji.setBounds(140, 2, 50, 20);
 			scrollpaneKanji.setBounds(5, 25, KANJIPANE_WIDTH, KANJIPANE_HEIGHT);
 			
-			
+
+			add(lblTitle);
 			add(lblNumKanji);
 			add(scrollpaneKanji);
-			add(lblKanNumLabel);
 		}
 
 		

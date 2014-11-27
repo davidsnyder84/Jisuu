@@ -83,10 +83,13 @@ public class Tango implements Comparable<Tango>{
 	
 	//toString
 	public String toString(){
-		final int PAD_LENGTH = 15;
+		final int PAD_LENGTH = 20;
 		char[] arrayFO = new char[PAD_LENGTH];
-		for (int i = 0; i < mFileOrigin.length() && i < PAD_LENGTH; i++){
-			arrayFO[i] = mFileOrigin.charAt(i);
+		for (int i = 0; i < mFileOrigin.length() || i < PAD_LENGTH; i++){
+			if (i < mFileOrigin.length())
+				arrayFO[i] = mFileOrigin.charAt(i);
+			else
+				arrayFO[i] = ' ';
 		}
 		String paddedFO = String.valueOf(arrayFO);
 		
