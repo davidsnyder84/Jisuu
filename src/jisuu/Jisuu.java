@@ -2,7 +2,6 @@ package jisuu;
 
 import jisuu.vocab.DupeFinder;
 import jisuu.kanji.KanjiSet;
-import jisuu.vocab.TangoList;
 import jisuu.vocab.TangoDictionary;
 
 public class Jisuu {
@@ -45,9 +44,9 @@ public class Jisuu {
 	
 	
 	
-	public static void dictionaryReport(){
+	public static void dictionaryReport(TangoDictionary overallDictionary){
 		
-		TangoList overallList = new TangoList();
+//		TangoDictionary overallList = new TangoList();
 		
 		overallList = FileLoader.loadAllVocabFiles();
 		if (overallList == null) return;

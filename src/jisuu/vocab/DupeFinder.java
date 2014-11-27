@@ -8,20 +8,15 @@ import jisuu.vocab.dupe.Dupe;
 public class DupeFinder {
 	
 
-	private final TangoList mTangoList;
+	private final TangoDictionary mDict;
 	
 	
-	public DupeFinder(TangoList list){
-		if (list != null)
-			mTangoList = list;
+	public DupeFinder(TangoDictionary dict){
+		if (dict != null)
+			mDict = dict;
 		else
-			mTangoList = new TangoList();
+			mDict = new TangoDictionary();
 	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -41,9 +36,9 @@ public class DupeFinder {
 		
 		List<Dupe> conflicts = new ArrayList<Dupe>();
 		
-		for (int curr = 0; curr < mTangoList.size() - 1; curr++)
-			if (mTangoList.get(curr).conflictsWith(mTangoList.get(curr + 1)))
-				conflicts.add(new Dupe(true, mTangoList.get(curr), mTangoList.get(curr + 1)));
+		for (int curr = 0; curr < mDict.size() - 1; curr++)
+			if (mDict.get(curr).conflictsWith(mDict.get(curr + 1)))
+				conflicts.add(new Dupe(true, mDict.get(curr), mDict.get(curr + 1)));
 		
 		return conflicts;
 	}

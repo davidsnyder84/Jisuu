@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import jisuu.vocab.Tango;
-import jisuu.vocab.TangoList;
+import jisuu.vocab.TangoDictionary;
 
 public class FileLoader {
 	
@@ -18,30 +18,31 @@ public class FileLoader {
 	
 	
 	
-	public static TangoList loadAllVocabFiles(){
+	public static TangoDictionary loadAllVocabFiles(){
 		
 		
-		TangoList tangoList = null;
-		TangoList overallList = new TangoList();
+		TangoDictionary currentDict = null;
+		TangoDictionary overallDict = new TangoDictionary();
 		
 		
 		File vocabListDir = new File(VOCABLIST_DIR);
 		
 		
+		
 		//load each file into the list
 		for (File f: vocabListDir.listFiles()){
-			tangoList = loadVocabFromFile(f);
-			if (tangoList == null) return null;
-			overallList.addAll(tangoList);
+			currentDict = loadVocabFromFile(f);
+			if (currentDict == null) return null;
+			overallDict.addAll(currentDict);
 		}
 		
 		
 		//sort by name
-		Collections.sort(overallList);
+		Collections.sort(overallDict);
 		
-		System.out.println(".........Loaded " + overallList.size() + " vocab cards total\n\n");
+		System.out.println(".........Loaded " + overallDict.size() + " vocab cards total\n\n");
 		
-		return overallList;
+		return overallDict;
 	}
 	
 	
@@ -50,14 +51,14 @@ public class FileLoader {
 	
 	
 	//loads all vocab from a given file and returns it as a TangoList
-	public static TangoList loadVocabFromFile(File inputFile){
+	public static TangoDictionary loadVocabFromFile(File inputFile){
 
 		final String LINESPLITTER = "\t";
 		final int FIELD_FRONT = 0, FIELD_BACK = 1;
 		final int NUM_FIELDS = 2;
 		
 		
-		TangoList tangoList = new TangoList();
+		TangoDictionary dict = new TangoDictionary();
 		
 		
 		//return null if file cannot be opened
@@ -80,14 +81,14 @@ public class FileLoader {
 			splitLine = inputLine.split(LINESPLITTER);
 			
 			if (splitLine.length == NUM_FIELDS)
-				tangoList.add(new Tango(splitLine[FIELD_FRONT], splitLine[FIELD_BACK], inputFile.getName()));
+				dict.add(new Tango(splitLine[FIELD_FRONT], splitLine[FIELD_BACK], inputFile.getName()));
 		}
 		
 
-		System.out.println("...Loaded " + tangoList.size() + " vocab cards from " + inputFile.getName());
+		System.out.println("...Loaded " + dict.size() + " vocab cards from " + inputFile.getName());
 		
 		fileReader.close();
-		return tangoList;
+		return dict;
 	}
 	public static List<Tango> loadVocabFromFile(String inputFileString){return loadVocabFromFile(inputFileString);}
 	
