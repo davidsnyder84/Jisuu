@@ -1,6 +1,9 @@
 package jisuu.vocab;
 
-import jisuu.vocab.dupe.DupeList;
+import java.util.ArrayList;
+import java.util.List;
+
+import jisuu.vocab.dupe.Dupe;
 
 public class DupeFinder {
 	
@@ -9,23 +12,48 @@ public class DupeFinder {
 	
 	
 	public DupeFinder(TangoList list){
-		if (list != null) mTangoList = list;
-		else mTangoList = new TangoList();
-	}
-	
-	
-	
-	
-	public void printConflicts(){
-		
-		DupeList conflicts = mTangoList.findAllConflicts();
-		
-		if (conflicts.isEmpty())
-			System.out.println("No conflicts found!");
+		if (list != null)
+			mTangoList = list;
 		else
-			System.out.println(conflicts.toString());
+			mTangoList = new TangoList();
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public List<Dupe> findAllConflicts(){
+		
+		List<Dupe> conflicts = new ArrayList<Dupe>();
+		
+		for (int curr = 0; curr < mTangoList.size() - 1; curr++)
+			if (mTangoList.get(curr).conflictsWith(mTangoList.get(curr + 1)))
+				conflicts.add(new Dupe(true, mTangoList.get(curr), mTangoList.get(curr + 1)));
+		
+		return conflicts;
+	}
+	
+	
+
+	
+	public boolean containsConflicts(){
+		return !findAllConflicts().isEmpty();
+	}
 	
 	
 	
@@ -33,13 +61,13 @@ public class DupeFinder {
 		String conflictsString = "";
 
 		
-		DupeList conflicts = mTangoList.findAllConflicts();
+		List<Dupe> conflicts = findAllConflicts();
 		
 		if (conflicts.isEmpty())
-			System.out.println("No conflicts found!");
+			conflictsString = "No conflicts found!";
 		else
-			System.out.println(conflicts.toString());
-		
+			for (Dupe d: conflicts)
+				conflictsString += d.toString();
 		
 		
 		return conflictsString;

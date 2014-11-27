@@ -1,14 +1,16 @@
 package jisuu.vocab;
 
-import jisuu.FileLoader;
+import java.util.Iterator;
+
 import jisuu.kanji.KanjiSet;
 
-public class TangoDictionary {
+public class TangoDictionary implements Iterable<Tango> {
 	
 	
-	private TangoList mTangoList;
+	private final TangoList mTangoList;
+	private final DupeFinder mDupeFinder;
 	
-	private String mLoadStats;
+//	private String mLoadStats;
 	
 	
 	
@@ -19,24 +21,46 @@ public class TangoDictionary {
 	
 	
 	public TangoDictionary(){
+		mTangoList = new TangoList();
+		mDupeFinder = new DupeFinder(mTangoList);
 	}
 	
 	
 	
 	
 	
+	
+	
+	public boolean addAll(TangoDictionary other){
+		return mTangoList.addAll(other.mTangoList);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	public boolean containsConflicts(){
+		return mDupeFinder.containsConflicts();
+	}
 	
 	
 	public String getConflicts(){
-//		TangoList overallList = new TangoList();
-//		
-//		overallList = FileLoader.loadAllVocabFiles();
-//		if (overallList == null) return;
-		
-		DupeFinder dupeFinder = new DupeFinder(mTangoList);
-		dupeFinder.printConflicts();
-		return null;
+		return mDupeFinder.getConflictsAsString();
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -51,9 +75,23 @@ public class TangoDictionary {
 		return mTangoList.size();
 	}
 	
-	public String getLoadStats(){
-		return mLoadStats;
+	
+	
+	
+	
+	
+	
+	
+	
+	public Iterator<Tango> iterator() {
+		return mTangoList.iterator();
 	}
+	
+	
+	
+//	public String getLoadStats(){
+//		return mLoadStats;
+//	}
 	
 	
 	

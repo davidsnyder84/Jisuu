@@ -3,10 +3,15 @@ package jisuu;
 import jisuu.vocab.DupeFinder;
 import jisuu.kanji.KanjiSet;
 import jisuu.vocab.TangoList;
+import jisuu.vocab.TangoDictionary;
 
 public class Jisuu {
 	
 	public static void main(String[] args) {
+		
+		
+		TangoDictionary dictionary = new TangoDictionary();
+		
 		
 		
 		dictionaryReport();
@@ -49,6 +54,7 @@ public class Jisuu {
 		
 		DupeFinder dupeFinder = new DupeFinder(overallList);
 		dupeFinder.printConflicts();
+		
 		
 		
 		KanjiSet dictKanji = overallList.getKanjiSet();
