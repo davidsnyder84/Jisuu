@@ -1,7 +1,7 @@
 package jisuu;
 
 import jisuu.vocab.DupeFinder;
-import jisuu.vocab.KanjiSet;
+import jisuu.kanji.KanjiSet;
 import jisuu.vocab.TangoList;
 
 public class Jisuu {

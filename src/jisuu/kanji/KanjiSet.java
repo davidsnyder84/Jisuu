@@ -1,4 +1,4 @@
-package jisuu.vocab;
+package jisuu.kanji;
 
 import java.util.ArrayList;
 import java.util.Collection;

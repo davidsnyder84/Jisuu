@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import jisuu.kanji.KanjiChar;
+import jisuu.kanji.KanjiSet;
 import jisuu.vocab.dupe.Dupe;
 import jisuu.vocab.dupe.DupeList;
 
@@ -30,43 +31,24 @@ public class TangoList extends ArrayList<Tango>{
 	
 	
 	
-//	public Collection<Character> getUniqueKanji(){
-//		return KanjiChar.getUniqueKanji(getFronts());
-//	}
-	
-	
-	
-	
-//	public String getUniqueKanjiString(String splitter){
-//		return KanjiChar.getUniqueKanjiString(getFronts(), splitter);
-//	}
-//	public String getUniqueKanjiString(){return getUniqueKanjiString(DEFAULT_UNIQUE_KANJI_SPLITTER);}
-	
-	
 	
 	
 	
 	
 	
 	public KanjiSet getKanjiSet(){
-//		KanjiSet uniqueKanji = new KanjiSet(getFronts());
-		
-//		KanjiSet uniqueKanji = new KanjiSet();
-//		uniqueKanji.add(getFronts());
-		
 		return new KanjiSet(getFronts());
 	}
 	
 	
 	
-//	public KanjiSet getKanjiSet(){
-//		return mKanjiSet;
-//	}
 	
 	
 	
 	
-	
+	/*
+	 * returns a list of the fronts of all the vocab cards
+	 */
 	public List<String> getFronts(){
 		List<String> fronts = new ArrayList<String>(size());
 		for (Tango t: this) fronts.add(t.getFront());
@@ -78,7 +60,9 @@ public class TangoList extends ArrayList<Tango>{
 	
 	
 	
-	
+	/*
+	 * no need for this yet
+	 */
 	@Override
 	public boolean add(Tango t){
 		boolean res = super.add(t);

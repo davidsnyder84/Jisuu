@@ -24,11 +24,26 @@ public class DupeFinder {
 			System.out.println("No conflicts found!");
 		else
 			System.out.println(conflicts.toString());
-		
-		
-		
 	}
 	
+	
+	
+	
+	public String getConflictsAsString(){
+		String conflictsString = "";
+
+		
+		DupeList conflicts = mTangoList.findAllConflicts();
+		
+		if (conflicts.isEmpty())
+			System.out.println("No conflicts found!");
+		else
+			System.out.println(conflicts.toString());
+		
+		
+		
+		return conflictsString;
+	}
 	
 	
 	
