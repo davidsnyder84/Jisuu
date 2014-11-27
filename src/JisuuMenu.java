@@ -9,16 +9,25 @@ import javax.swing.JScrollPane;
 public class JisuuMenu extends JFrame{
 	private static final long serialVersionUID = 5106812075459526627L;
 	
+	private static final int WINDOW_WIDTH = 500;
+	private static final int WINDOW_HEIGHT = 300;
 	
+	private static final int WINDOW_TOP_BORDER_SIZE = 26;
+	private static final int WINDOW_SIDE_BORDER_SIZE = 2;
+	private static final int WINDOW_BOTTOM_BORDER_SIZE = 2;
+//	private static final int WINDOW_MENU_SIZE = 23;
 	
 	
 	
 	public JisuuMenu() {
 		
-		setSize(480, 600);
 		
 		
+		final int WINDOW_BOUND_WIDTH = WINDOW_WIDTH + 2*WINDOW_SIDE_BORDER_SIZE;
+		final int WINDOW_BOUND_HEIGHT = WINDOW_HEIGHT + WINDOW_TOP_BORDER_SIZE + WINDOW_BOTTOM_BORDER_SIZE;
 		
+		
+		setBounds(100, 100, WINDOW_BOUND_WIDTH, WINDOW_BOUND_HEIGHT);
 		setTitle("Jisuu - Main Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -40,38 +49,63 @@ public class JisuuMenu extends JFrame{
 		
 		
 		
-		
-		JTextPane tPane = new JTextPane();
-		tPane.setText(message);
-		tPane.setText(longMessage);
-		tPane.setText(horizMessage);
-//		tPane.setText(sampleLong);
-		tPane.setText(lotsLong);
-		tPane.setBounds(26, 64, 416, 196);
-//		contentPane.add(tPane);
-		
 		JTextArea tArea = new JTextArea();
+		tArea.setEditable(false);
 		tArea.setText(message);
+		tArea.setLineWrap(false);
 		tArea.setText(longMessage);
 //		tArea.setText(horizMessage);
 //		tArea.setText(sampleLong);
 		tArea.setText(lotsLong);
 		tArea.setBounds(33, 293, 351, 180);
-		contentPane.add(tArea);
-		
-		JLabel label = new JLabel();
-		label.setText(message);
-		label.setText(longMessage);
-		label.setBounds(43, 481, 328, 80);
-		contentPane.add(label);
+//		contentPane.add(tArea);
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 84, 454, 264);
-//		scrollPane.setViewportView(tPane);
 		scrollPane.setViewportView(tArea);
 		contentPane.add(scrollPane);
+		
+		
+		
+		
+		
+		KanjiReportPanel dictReport;
+		
+		
 	}
+	
+	
+	
+	
+	
+	public class KanjiReportPanel extends JPanel{
+		private static final long serialVersionUID = -8234225565280333992L;
+		
+		public KanjiReportPanel(){
+			
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

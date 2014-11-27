@@ -81,6 +81,4 @@ public class TangoList extends ArrayList<Tango>{
 	}
 	
 	
-	
-	
 }
