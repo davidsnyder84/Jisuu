@@ -18,13 +18,17 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
-	
-	public KanjiSet(List<String> strings){
-		super();
-		add(strings);
-	}
+
 	public KanjiSet(){
 		super();
+	}
+	public KanjiSet(List<String> strings){
+		this();
+		add(strings);
+	}
+	public KanjiSet(Collection<? extends Character> col){
+		this();
+		addAll(col);
 	}
 	
 	
@@ -85,6 +89,13 @@ public class KanjiSet extends HashSet<Character>{
 			
 		return changed;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

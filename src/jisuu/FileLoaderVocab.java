@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 import jisuu.vocab.Tango;
@@ -90,7 +89,6 @@ public class FileLoaderVocab {
 		fileReader.close();
 		return dict;
 	}
-	public static List<Tango> loadVocabFromFile(String inputFileString){return loadVocabFromFile(inputFileString);}
 	
 	
 	

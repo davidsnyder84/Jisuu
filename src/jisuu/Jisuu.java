@@ -1,7 +1,7 @@
 package jisuu;
 
-import jisuu.vocab.DupeFinder;
 import jisuu.kanji.KanjiSet;
+import jisuu.story.StoryReport;
 import jisuu.vocab.TangoDictionary;
 
 public class Jisuu {
@@ -9,12 +9,15 @@ public class Jisuu {
 	public static void main(String[] args) {
 		
 		
-		TangoDictionary dictionary = new TangoDictionary();
+		TangoDictionary dict = new TangoDictionary();
+		StoryReport storyRep = null;
 		
 		
 		
-		dictionaryReport();
-
+		dict = loadDictionary();
+		
+		
+		
 		System.out.println("\n\n\n\n");
 		
 		
@@ -44,22 +47,24 @@ public class Jisuu {
 	
 	
 	
-	public static void dictionaryReport(TangoDictionary overallDictionary){
-		
-//		TangoDictionary overallList = new TangoList();
-		
-		overallList = FileLoader.loadAllVocabFiles();
-		if (overallList == null) return;
-		
-		DupeFinder dupeFinder = new DupeFinder(overallList);
-		dupeFinder.printConflicts();
+	public static TangoDictionary loadDictionary(){
 		
 		
+		TangoDictionary dict = FileLoaderVocab.loadAllVocabFiles();
+		if (dict == null) return null;
 		
-		KanjiSet dictKanji = overallList.getKanjiSet();
+		
+
+		System.out.println(dict.getConflicts());
+		
+		
+		
+		KanjiSet dictKanji = dict.getKanjiSet();
 		
 		System.out.println("Unique kanji: " + dictKanji.size());
 		System.out.println(dictKanji.toString());
+		
+		return dict;
 	}
 	
 	

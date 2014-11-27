@@ -1,13 +1,38 @@
 package jisuu.story;
 
+import jisuu.kanji.KanjiSet;
+
 public class StoryReport {
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	
+	private KanjiSet mKanjiSet;
+	private int mLines;
+	
+	
+	public StoryReport(KanjiSet kanji, int lines){
+		mKanjiSet = kanji;
+		mLines = lines;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * returns the set of unique kanji for all the vocab cards
+	 */
+	public KanjiSet getKanjiSet(){
+		return new KanjiSet(mKanjiSet);
+	}
+	
+	public int getNumLines(){
+		return mLines;
+	}
+	
+	
+	
+	
 }
