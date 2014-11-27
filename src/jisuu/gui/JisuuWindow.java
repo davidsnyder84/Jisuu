@@ -1,3 +1,5 @@
+package jisuu.gui;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
@@ -6,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 
-public class JisuuMenu extends JFrame{
+public class JisuuWindow extends JFrame{
 	private static final long serialVersionUID = 5106812075459526627L;
 	
 	private static final int WINDOW_WIDTH = 500;
@@ -19,7 +21,7 @@ public class JisuuMenu extends JFrame{
 	
 	
 	
-	public JisuuMenu() {
+	public JisuuWindow() {
 		
 		
 		
@@ -110,7 +112,7 @@ public class JisuuMenu extends JFrame{
 	
 	
 	public static void main(String[] args) {
-		JFrame frame = new JisuuMenu();
+		JFrame frame = new JisuuWindow();
 		frame.setVisible(true);
 	}
 }

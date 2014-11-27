@@ -101,6 +101,23 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
+	
+	
+	
+	
+	
+	public String getReport(){
+		String report = "";
+		
+		report = "Unique kanji: " + size() + "\n";
+		report += toString();
+		
+		return report;
+	}
+	
+	
+	
+	
 	public String toString(){
 		
 		//sort here

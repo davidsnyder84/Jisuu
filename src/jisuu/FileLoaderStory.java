@@ -46,7 +46,7 @@ public class FileLoaderStory {
 
 		fileReader.close();
 
-		System.out.println("...Loaded " + linesRead + " lines from " + inputFile.getName());
+		System.out.println(".........Loaded " + linesRead + " lines from " + inputFile.getName());
 		StoryReport storyReport = new StoryReport(kanjiSet,linesRead);
 		
 		

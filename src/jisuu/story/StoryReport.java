@@ -22,7 +22,7 @@ public class StoryReport {
 	
 	
 	/*
-	 * returns the set of unique kanji for all the vocab cards
+	 * returns (a copy of) the set of unique kanji for all the vocab cards
 	 */
 	public KanjiSet getKanjiSet(){
 		return new KanjiSet(mKanjiSet);
