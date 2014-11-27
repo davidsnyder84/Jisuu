@@ -19,6 +19,43 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
+	public KanjiSet(List<String> strings){
+		super();
+		add(strings);
+	}
+	public KanjiSet(){
+		super();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	@Override
+	public boolean add(Character c){
+		if (KanjiChar.isKanji(c))
+			return super.add(c);
+		
+		return false;
+	}
+	
+	
+	@Override
+	public boolean addAll(Collection<? extends Character> col){
+		boolean changed = false;
+		for (Character c: col)
+			changed = add(c) || changed;
+		return changed;
+	}
 	
 	
 	

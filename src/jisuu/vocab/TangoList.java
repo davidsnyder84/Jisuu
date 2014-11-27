@@ -15,17 +15,55 @@ public class TangoList extends ArrayList<Tango>{
 	public static final String DEFAULT_UNIQUE_KANJI_SPLITTER = "\n";
 	
 	
-	public Collection<Character> getUniqueKanji(){
-		return KanjiChar.getUniqueKanji(getFronts());
+	
+//	private final KanjiSet mKanjiSet;
+	
+	
+	
+	
+	public TangoList(){
+//		mKanjiSet = new KanjiSet();
 	}
 	
 	
 	
 	
-	public String getUniqueKanjiString(String splitter){
-		return KanjiChar.getUniqueKanjiString(getFronts(), splitter);
+	
+	
+//	public Collection<Character> getUniqueKanji(){
+//		return KanjiChar.getUniqueKanji(getFronts());
+//	}
+	
+	
+	
+	
+//	public String getUniqueKanjiString(String splitter){
+//		return KanjiChar.getUniqueKanjiString(getFronts(), splitter);
+//	}
+//	public String getUniqueKanjiString(){return getUniqueKanjiString(DEFAULT_UNIQUE_KANJI_SPLITTER);}
+	
+	
+	
+	
+	
+	
+	
+	public KanjiSet getKanjiSet(){
+//		KanjiSet uniqueKanji = new KanjiSet(getFronts());
+		
+//		KanjiSet uniqueKanji = new KanjiSet();
+//		uniqueKanji.add(getFronts());
+		
+		return new KanjiSet(getFronts());
 	}
-	public String getUniqueKanjiString(){return getUniqueKanjiString(DEFAULT_UNIQUE_KANJI_SPLITTER);}
+	
+	
+	
+//	public KanjiSet getKanjiSet(){
+//		return mKanjiSet;
+//	}
+	
+	
 	
 	
 	

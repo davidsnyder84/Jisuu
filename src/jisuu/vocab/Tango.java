@@ -36,9 +36,9 @@ public class Tango implements Comparable<Tango>{
 	
 	
 	//mutators
-	public void setFileOrigin(String fileOrigin){
-		mFileOrigin = fileOrigin;
-	}
+//	public void setFileOrigin(String fileOrigin){
+//		mFileOrigin = fileOrigin;
+//	}
 	
 	
 	
