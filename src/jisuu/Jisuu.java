@@ -55,6 +55,9 @@ public class Jisuu {
 	
 	
 	
+	
+	
+	
 	public void printInfo(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
 		
 		

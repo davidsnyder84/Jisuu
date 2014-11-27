@@ -22,6 +22,8 @@ public class JisuuWindow extends JFrame{
 	private static final int WINDOW_BOTTOM_BORDER_SIZE = 2;
 //	private static final int WINDOW_MENU_SIZE = 23;
 	
+	
+	private static final String WINDOW_TITLE = "Jisuu - Main Menu";
 	private static final String TITLE_KANJI_DICT = "Dictionary Kanji:", TITLE_KANJI_STORY = "Story Kanji:", TITLE_KANJI_UNK = "Unknown Kanji:";
 	
 	
@@ -29,13 +31,13 @@ public class JisuuWindow extends JFrame{
 	
 	
 	
-	private DictionaryPanel panDict;
+	protected DictionaryPanel panDict;
 	
-	private KanjiSetPanel panDictKanji;
-	private KanjiSetPanel panStoryKanji;
-	private KanjiSetPanel panUnkKanji;
+	protected KanjiSetPanel panDictKanji;
+	protected KanjiSetPanel panStoryKanji;
+	protected KanjiSetPanel panUnkKanji;
 	
-	
+	protected StatsPanel panStats;
 	
 	
 	
@@ -56,7 +58,7 @@ public class JisuuWindow extends JFrame{
 		
 		
 		setBounds(100, 100, WINDOW_BOUND_WIDTH, WINDOW_BOUND_HEIGHT);
-		setTitle("Jisuu - Main Menu");
+		setTitle(WINDOW_TITLE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
@@ -67,32 +69,6 @@ public class JisuuWindow extends JFrame{
 		contentPane.setLayout(null);
 		
 		
-		String message = "This\nShould\nBe\nFive\nLines";
-		String longMessage = "This\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines\nShould\nBe\nFive\nLines";
-		String horizMessage = "This is a long ass line that keeps going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and ";
-		String sampleLong = "贔屓\t(ひいき) (贔屓,贔負) (n,vs) favor; patronage; partiality; (P)   [贔屓贔屓 - (n) each person supporting (patronizing) his (her) own favorite]   [依怙贔屓 - (えこひいき) (adj-na,n,vs) favoritism; favouritism; partiality; prejudice; bias]   [贔屓にする - (exp,vs-i) to favor; to show favor to;to be partial to; to be a regular customer of]   [身贔屓 - (みびいき) (n) favoritism (towards relatives); favouritism; nepotism]   [縁者贔屓 - (えんじゃびいき) (n) nepotism]";
-		String lotsLong = sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n" + sampleLong + "\n";
-		
-		
-		
-		
-		
-		JTextArea tArea = new JTextArea();
-		tArea.setEditable(false);
-		tArea.setText(message);
-		tArea.setLineWrap(false);
-		tArea.setText(longMessage);
-//		tArea.setText(horizMessage);
-//		tArea.setText(sampleLong);
-		tArea.setText(lotsLong);
-		tArea.setBounds(33, 293, 351, 180);
-//		contentPane.add(tArea);
-		
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 84, 454, 264);
-		scrollPane.setViewportView(tArea);
-		contentPane.add(scrollPane);
 		
 		
 		
@@ -108,6 +84,7 @@ public class JisuuWindow extends JFrame{
 		panStoryKanji = new KanjiSetPanel();
 		panUnkKanji = new KanjiSetPanel();
 		
+		panStats = new StatsPanel();
 		
 		
 
@@ -118,6 +95,18 @@ public class JisuuWindow extends JFrame{
 		
 		
 		
+		
+		contentPane.add(panDict);
+		contentPane.add(panStoryKanji);
+		contentPane.add(panUnkKanji);
+		contentPane.add(panStats);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		panUnkKanji.setLocation(182, 27);
+		panStoryKanji.setLocation(129, 292);
+		panDict.setLocation(392, 60);
+		
+		displayInfo(null, null, null, null, null);
 	}
 	
 	
@@ -129,6 +118,7 @@ public class JisuuWindow extends JFrame{
 		panUnkKanji.updateInfo(TITLE_KANJI_UNK, unkownKanji);
 		
 		panDict.updateInfo(dict);
+		panStats.updateInfo(dict, story);
 		
 		
 		//update window, etc
@@ -180,6 +170,7 @@ public class JisuuWindow extends JFrame{
 		public StatsPanel(){
 			super();
 			setBounds(0, 0, WIDTH, HEIGHT);
+			setLayout(null);
 			
 			
 			JLabel lblTitle = new JLabel("Stats");
@@ -200,8 +191,11 @@ public class JisuuWindow extends JFrame{
 			if (story != null) pStory = story;
 			else pStory = new StoryReport();
 			
+			
+			txtStats.setText(pDict.getFileStats() + "\n" + pStory.getFileStats());
+			
+			
 			//update
-			//add stats method to Dictionary
 		}
 	}
 	
@@ -229,6 +223,7 @@ public class JisuuWindow extends JFrame{
 		public DictionaryPanel(){
 			super();
 			setBounds(0, 0, WIDTH, HEIGHT);
+			setLayout(null);
 			
 			
 
@@ -249,10 +244,10 @@ public class JisuuWindow extends JFrame{
 			if (dict != null) pDict = dict;
 			else pDict = new TangoDictionary();
 			
-			pKanjiPanel.updateInfo(TITLE_KANJI_DICT, dict.getKanjiSet());
+			pKanjiPanel.updateInfo(TITLE_KANJI_DICT, pDict.getKanjiSet());
 			
 			//set conflicts
-			txtConflicts.setText(dict.getConflicts());
+			txtConflicts.setText(pDict.getConflicts());
 		}
 		
 	}
@@ -272,6 +267,7 @@ public class JisuuWindow extends JFrame{
 		private String pTitle;
 		private KanjiSet pKanji;
 		
+		private JLabel lblTitle = new JLabel();
 		private JLabel lblNumKanji = new JLabel();
 		private JTextArea txtKanji = new JTextArea();
 		private JScrollPane scrollpaneKanji = new JScrollPane();
@@ -280,10 +276,10 @@ public class JisuuWindow extends JFrame{
 		public KanjiSetPanel(){
 			super();
 			setBounds(0, 0, WIDTH, HEIGHT);
+			setLayout(null);
 			
 			
-			final JLabel lblKanNumLabel = new JLabel("Number of Kanji: ");
-			final JLabel lblKanTextLabel = new JLabel("Set of Kanji: ");
+			final JLabel lblKanNumLabel = new JLabel("Number of Kanji: "), lblKanTextLabel = new JLabel("Set of Kanji: ");
 			
 			
 			
@@ -311,9 +307,11 @@ public class JisuuWindow extends JFrame{
 			setKanjiSet(kanji);
 			
 			//number of kanji
-			lblNumKanji.setText(Integer.toString(kanji.size()));
+			lblNumKanji.setText(Integer.toString(pKanji.size()));
 			//set of kanji
-			txtKanji.setText(kanji.toString());
+			txtKanji.setText(pKanji.toString());
+			
+			lblTitle.setText(pTitle);
 		}
 		
 		public void setKanjiSet(KanjiSet kanji){

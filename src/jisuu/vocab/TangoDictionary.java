@@ -1,8 +1,6 @@
 package jisuu.vocab;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -95,28 +93,6 @@ public class TangoDictionary extends ArrayList<Tango>{
 		
 		return statString;
 	}
-//	public String getFileStats(){
-//		String statString = "";
-//		
-//		
-//		HashMap<String, Integer> freqMap = new HashMap<String, Integer>();
-//		
-//		for (Tango t: this){
-//			String fname = t.getFileOrigin();
-//			if (freqMap.containsKey(fname))
-//				freqMap.put(fname, freqMap.get(fname) + 1);
-//			else
-//				freqMap.put(fname, 1);
-//		}
-//		
-//		
-//		List<String> freqs = new ArrayList<String>(freqMap.keySet());
-//		Collections.sort(freqs);
-//		for (String s: freqs)
-//			statString += "...Loaded " + freqMap.get(s) + " vocab cards from " + s + "\n";
-//		
-//		return statString;
-//	}
 	
 	
 	
