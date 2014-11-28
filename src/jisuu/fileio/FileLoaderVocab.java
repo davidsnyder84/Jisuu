@@ -27,7 +27,8 @@ public class FileLoaderVocab {
 		
 		
 		File vocabListDir = new File(VOCABLIST_DIR);
-		
+		if (vocabListDir.listFiles() == null)
+			return null;
 		
 		
 		//load each file into the list
