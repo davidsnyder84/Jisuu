@@ -327,24 +327,4 @@ public class JisuuWindow extends JFrame{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		JFrame frame = new JisuuWindow();
-		frame.setVisible(true);
-	}
 }

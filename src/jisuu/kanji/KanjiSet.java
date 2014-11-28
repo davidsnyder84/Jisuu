@@ -64,21 +64,13 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	public boolean add(String string){
-		
-		Collection<Character> uniqueK = new HashSet<Character>();
 
-		//add unique characters
+		boolean changed = false;
 		char[] charArray = string.toCharArray();
 		for (Character c: charArray)
-			uniqueK.add(c);
+			changed = add(c) || changed;
 		
-		
-		//remove non-kanji characters
-		uniqueK.removeAll(KanjiChar.setOfNonKanji());
-		
-		
-		
-		return addAll(uniqueK);
+		return changed;
 	}
 	
 	public boolean add(List<String> strings){

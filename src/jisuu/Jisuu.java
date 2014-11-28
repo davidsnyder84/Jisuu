@@ -21,6 +21,7 @@ public class Jisuu {
 	
 	
 	public void launch(){
+		long time = System.currentTimeMillis();
 		
 		TangoDictionary dict = null;
 		StoryReport story = null;
@@ -47,9 +48,12 @@ public class Jisuu {
 		unkownKanji = new KanjiSet(storyKanji);
 		unkownKanji.removeAll(dictKanji);
 		
+
+		System.out.println("\n\nTime elapsed: " + (System.currentTimeMillis() - time));
 		
 		//print info
 		printInfo(dict, story, dictKanji, storyKanji, unkownKanji);
+		
 		
 	}
 	

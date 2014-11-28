@@ -17,12 +17,10 @@ public class KanjiChar {
 	//maybe use whitelist instead
 	
 	
-	private static final Collection<Character> nonKanjiCollection = new HashSet<Character>();
 	
-	static{for (Character c: nonKanji.toCharArray()) nonKanjiCollection.add(c);}
-	
-	
-	
+//	private static final Collection<Character> nonKanjiCollection = new HashSet<Character>();
+//	
+//	static{for (Character c: nonKanji.toCharArray()) nonKanjiCollection.add(c);}
 	
 	
 	
@@ -39,9 +37,6 @@ public class KanjiChar {
 	
 	
 	
-	public static Collection<Character> setOfNonKanji(){
-		return nonKanjiCollection;
-	}
 	
 	
 	
