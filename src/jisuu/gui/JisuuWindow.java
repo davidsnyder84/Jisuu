@@ -16,6 +16,10 @@ import jisuu.vocab.TangoDictionary;
 public class JisuuWindow extends JFrame{
 	private static final long serialVersionUID = 5106812075459526627L;
 	
+	
+	
+	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Begin Display Constants~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	
 	private static final int WINDOW_WIDTH = 800, WINDOW_HEIGHT = 600;
 	
 	private static final int WINDOW_TOP_BORDER_SIZE = 26;
@@ -27,11 +31,10 @@ public class JisuuWindow extends JFrame{
 	
 	private static final Color COLOR_TRANSPARENT = new Color(0, 0, 0, 0);
 	
-	
-	
 	private static final String WINDOW_TITLE = "Jisuu";
 	private static final String TITLE_KANJI_DICT = "Dictionary Kanji:", TITLE_KANJI_STORY = "Story Kanji:", TITLE_KANJI_UNK = "Unknown Kanji:";
 	
+	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Display Constants~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	
 	
 	
@@ -113,7 +116,7 @@ public class JisuuWindow extends JFrame{
 	
 	
 	
-	private class TripleKanjiPanel extends JPanel{
+	private static class TripleKanjiPanel extends JPanel{
 		private static final long serialVersionUID = -2228035782444422423L;
 		
 		private static final int WIDTH = KanjiSetPanel.WIDTH*3, HEIGHT = KanjiSetPanel.HEIGHT;
@@ -137,8 +140,6 @@ public class JisuuWindow extends JFrame{
 			add(panStoryKanji);
 			add(panUnkKanji);
 		}
-		
-		
 		
 		
 
@@ -165,7 +166,7 @@ public class JisuuWindow extends JFrame{
 	
 	
 
-	private class StatsPanel extends JPanel{
+	private static class StatsPanel extends JPanel{
 		private static final long serialVersionUID = 3900762501958533847L;
 		
 		private static final int WIDTH = WINDOW_WIDTH, HEIGHT = 150;
@@ -212,7 +213,7 @@ public class JisuuWindow extends JFrame{
 	
 	
 	
-	private class DictionaryPanel extends JPanel{
+	private static class DictionaryPanel extends JPanel{
 		private static final long serialVersionUID = 4408450891634950601L;
 		
 		private static final int WIDTH = WINDOW_WIDTH, HEIGHT = 350;
@@ -257,7 +258,7 @@ public class JisuuWindow extends JFrame{
 	
 	
 	
-	private class KanjiSetPanel extends JPanel{
+	private static class KanjiSetPanel extends JPanel{
 		private static final long serialVersionUID = -8234225565280333992L;
 		
 		public static final int WIDTH = 266, HEIGHT = 100;

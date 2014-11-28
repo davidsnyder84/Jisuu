@@ -5,10 +5,10 @@ package jisuu.vocab;
 public class Tango implements Comparable<Tango>{
 	
 	
-	private String mFront;
-	private String mBack;
+	private final String mFront;
+	private final String mBack;
 	
-	private String mFileOrigin;
+	private final String mFileOrigin;
 	
 	
 	
@@ -20,7 +20,7 @@ public class Tango implements Comparable<Tango>{
 		mFileOrigin = fileOrigin;
 	}
 	public Tango(String front, String back){
-		this(front, back, null);
+		this(front, back, "");
 	}
 	
 	

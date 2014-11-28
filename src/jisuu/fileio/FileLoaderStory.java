@@ -1,4 +1,4 @@
-package jisuu;
+package jisuu.fileio;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,8 +17,9 @@ public class FileLoaderStory {
 	
 	
 	
-	
-	//loads all vocab from a given file and returns it as a TangoList
+	/*
+	 * reads the given file, and returns a StoryReport for the file
+	 */
 	public static StoryReport loadStoryFromFile(File inputFile){
 		
 		//return null if file cannot be opened
@@ -31,12 +32,12 @@ public class FileLoaderStory {
 		}
 		
 		
-		
 		int linesRead = 0;
 		KanjiSet kanjiSet = new KanjiSet();
 		
 		String inputLine = "";
 		
+		//for each line, add its kanji to the kanjiSet
 		while (fileReader.hasNext()){
 			linesRead++;
 			inputLine = fileReader.nextLine();
@@ -48,7 +49,6 @@ public class FileLoaderStory {
 
 		System.out.println(".........Loaded " + linesRead + " lines from " + inputFile.getName());
 		StoryReport storyReport = new StoryReport(kanjiSet, linesRead, inputFile.getName());
-		
 		
 		return storyReport;
 	}

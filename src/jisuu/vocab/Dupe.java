@@ -7,7 +7,7 @@ public class Dupe {
 	private final Tango mTango1;
 	private final Tango mTango2;
 	
-	private boolean mIsConflict;
+	private final boolean mIsConflict;
 
 	
 	public Dupe(boolean isConflict, Tango t1, Tango t2){
@@ -16,14 +16,14 @@ public class Dupe {
 	}
 	public Dupe(Tango t1, Tango t2){
 		mTango1 = t1; mTango2 = t2;
-		__checkForConflict();
+		mIsConflict = __checkForConflict();
 	}
 	
 	
 	
 	
-	private void __checkForConflict(){
-		mIsConflict = mTango1.conflictsWith(mTango2);
+	private boolean __checkForConflict(){
+		return mTango1.conflictsWith(mTango2);
 	}
 	
 	
@@ -37,7 +37,9 @@ public class Dupe {
 	
 	
 	
-	
+	/*
+	 * returns (as a String) the type of Dupe (duplicate vs conflict), and the vocab cards involved with the Dupe
+	 */
 	public String toString(){
 		String dString = "";
 		if (mIsConflict) dString += "!!!!!Conflict!!!!!\n";

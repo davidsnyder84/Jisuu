@@ -10,6 +10,7 @@ public class StoryReport {
 	private String mFilename;
 	
 	
+	
 	public StoryReport(KanjiSet kanji, int lines, String filename){
 		if (kanji != null)
 			mKanjiSet = kanji;
@@ -19,7 +20,7 @@ public class StoryReport {
 		mLines = lines;
 		mFilename = filename;
 	}
-	public StoryReport(){
+	public StoryReport(){	//creates an empty report
 		mKanjiSet = new KanjiSet();
 		mLines = 0;
 		mFilename = "";
@@ -30,13 +31,6 @@ public class StoryReport {
 	
 	
 	
-	public String getFileStats(){
-		String statString = "";
-		
-		statString += ".........Loaded " + mLines + " lines from " + mFilename;
-		return statString;
-	}
-	
 	
 	
 	/*
@@ -45,11 +39,10 @@ public class StoryReport {
 	public KanjiSet getKanjiSet(){
 		return new KanjiSet(mKanjiSet);
 	}
-
+	//accessors
 	public int getNumLines(){
 		return mLines;
 	}
-	
 	public String getFilename(){
 		return mFilename;
 	}
@@ -57,6 +50,16 @@ public class StoryReport {
 	
 	
 	
+	
+	/*
+	 * returns some statistics for the file the story was loaded from
+	 */
+	public String getFileStats(){
+		String statString = "";
+		
+		statString += ".........Loaded " + mLines + " lines from " + mFilename;
+		return statString;
+	}
 	
 	
 	

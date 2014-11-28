@@ -60,17 +60,21 @@ public class TangoDictionary extends ArrayList<Tango>{
 
 	
 	
-	
-	public String getConflicts(){
-		return mDupeFinder.getConflictsAsString();
-	}
-
+	//returns true if the dictionary contains conflicts
 	public boolean containsConflicts(){
 		return mDupeFinder.containsConflicts();
 	}
 	
+	//returns all conflicts as a string
+	public String getConflicts(){
+		return mDupeFinder.getConflictsAsString();
+	}
 	
 	
+	
+	/*
+	 * returns some statistics for the file(s) the dictionary was loaded from
+	 */
 	public String getFileStats(){
 		
 		String statString = "";
@@ -98,7 +102,9 @@ public class TangoDictionary extends ArrayList<Tango>{
 	
 	
 	
-	
+	/*
+	 * returns all entries in the dictionary as a string
+	 */
 	public String toString(){
 		String listString = "";
 		for (Tango t: this) listString += t.toString() + "\n";

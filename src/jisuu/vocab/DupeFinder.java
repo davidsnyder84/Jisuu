@@ -27,7 +27,9 @@ public class DupeFinder {
 	
 	
 	
-	
+	/*
+	 * returns a list of all conflicts
+	 */
 	public List<Dupe> findAllConflicts(){
 		
 		List<Dupe> conflicts = new ArrayList<Dupe>();
@@ -40,14 +42,15 @@ public class DupeFinder {
 	}
 	
 	
-
 	
+	//returns true if the dictionary contains any conflicts
 	public boolean containsConflicts(){
 		return !findAllConflicts().isEmpty();
 	}
 	
 	
 	
+	//returns a list of all conflicts as a string
 	public String getConflictsAsString(){
 		String conflictsString = "";
 

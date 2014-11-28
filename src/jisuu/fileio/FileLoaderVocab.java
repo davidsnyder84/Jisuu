@@ -1,4 +1,4 @@
-package jisuu;
+package jisuu.fileio;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +16,9 @@ public class FileLoaderVocab {
 	
 	
 	
-	
+	/*
+	 * loads vocab from all files in the vocab directory, and returns it all in a list
+	 */
 	public static TangoDictionary loadAllVocabFiles(){
 		
 		
@@ -30,9 +32,11 @@ public class FileLoaderVocab {
 		
 		//load each file into the list
 		for (File f: vocabListDir.listFiles()){
-			currentDict = loadVocabFromFile(f);
-			if (currentDict == null) return null;
-			overallDict.addAll(currentDict);
+			if (f.isFile()){	//check that f is a file (not a directory)
+				currentDict = loadVocabFromFile(f);
+				if (currentDict == null) return null;
+				overallDict.addAll(currentDict);
+			}
 		}
 		
 		
@@ -48,8 +52,9 @@ public class FileLoaderVocab {
 	
 	
 	
-	
-	//loads all vocab from a given file and returns it as a TangoList
+	/*
+	 * loads all the vocab from the given file, and returns it as a list
+	 */
 	public static TangoDictionary loadVocabFromFile(File inputFile){
 
 		final String LINESPLITTER = "\t";

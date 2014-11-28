@@ -37,10 +37,6 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
-	
-	
-	
-	
 	/*
 	 * add a character to the set
 	 * Overridden to allow only Kanji characters to be added to the set

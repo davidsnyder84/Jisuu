@@ -1,5 +1,7 @@
 package jisuu;
 
+import jisuu.fileio.FileLoaderStory;
+import jisuu.fileio.FileLoaderVocab;
 import jisuu.gui.JisuuWindow;
 import jisuu.kanji.KanjiSet;
 import jisuu.story.StoryReport;
