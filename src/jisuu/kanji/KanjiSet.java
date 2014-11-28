@@ -47,10 +47,7 @@ public class KanjiSet extends HashSet<Character>{
 	 */
 	@Override
 	public boolean add(Character c){
-		if (KanjiChar.isKanji(c))
-			return super.add(c);
-		
-		return false;
+		return (KanjiChar.isKanji(c) && super.add(c));
 	}
 	
 	

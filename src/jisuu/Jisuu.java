@@ -12,16 +12,18 @@ public class Jisuu {
 	private JisuuWindow mWindow;
 	
 	
-	public Jisuu(){
+	public Jisuu(){	//constructor creates a window
 		mWindow = new JisuuWindow();
 	}
 	
 	
 	
 	
-	
+	/*
+	 * launches the program
+	 * loads the dictionaries, the story, and displays a report
+	 */
 	public void launch(){
-		long time = System.currentTimeMillis();
 		
 		TangoDictionary dict = null;
 		StoryReport story = null;
@@ -34,27 +36,25 @@ public class Jisuu {
 		//load story
 		story = FileLoaderStory.loadStoryFromFile();
 		
-		
-		//if null, just use an empty dictionary/story
+		//if one of them failed to load, use an empty dictionary or story
 		if (dict == null) dict = new TangoDictionary();
 		if (story == null) story = new StoryReport();
 		
 		
 		
-		//find new kanji (kanji which are in the story. but not in the dictionary)
+		
+		//get the kanji sets from the dictionary and story
 		dictKanji = dict.getKanjiSet();
 		storyKanji = story.getKanjiSet();
-		
+
+		//find unkown kanji (kanji which are in the story. but not in the dictionary)
 		unkownKanji = new KanjiSet(storyKanji);
 		unkownKanji.removeAll(dictKanji);
 		
-
-		System.out.println("\n\nTime elapsed: " + (System.currentTimeMillis() - time));
 		
-		//print info
-		printInfo(dict, story, dictKanji, storyKanji, unkownKanji);
-		
-		
+		//display reports
+		displayReport(dict, story, dictKanji, storyKanji, unkownKanji);
+		System.out.println("\n");
 	}
 	
 	
@@ -62,14 +62,16 @@ public class Jisuu {
 	
 	
 	
-	public void printInfo(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
+	/*
+	 * displays all of the info
+	 * displays dictionary conflicts, and the kanji sets for the dictionary and story
+	 */
+	public void displayReport(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
 		
 		
 		//print dictionary conflicts
 		System.out.println("\n\n~~~~~Conflicts: ");
 		System.out.println(dict.getConflicts());
-		
-		
 		
 		//print kanji reports
 		System.out.println("\n\n\n\n");
@@ -88,11 +90,6 @@ public class Jisuu {
 		//display in GUI
 		mWindow.displayInfo(dict, story, dictKanji, storyKanji, unkownKanji);
 		mWindow.setVisible(true);
-		
-		
-		System.out.println(dict.getFileStats());
-		System.out.println(story.getFileStats());
-		
 	}
 	
 	
@@ -103,7 +100,7 @@ public class Jisuu {
 	
 	
 	public static void main(String[] args) {
-		Jisuu jisuu = new Jisuu();
-		jisuu.launch();
+		Jisuu j = new Jisuu();
+		j.launch();
 	}
 }
