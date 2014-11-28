@@ -12,8 +12,7 @@ public class KanjiSet extends HashSet<Character>{
 	private static final long serialVersionUID = -3252352541857029942L;
 	
 	
-	
-	public static final String DEFAULT_UNIQUE_KANJI_SPLITTER = "";
+	private static final String DEFAULT_UNIQUE_KANJI_SPLITTER = "";	//used for output
 	
 	
 	
@@ -22,11 +21,11 @@ public class KanjiSet extends HashSet<Character>{
 	public KanjiSet(){
 		super();
 	}
-	public KanjiSet(List<String> strings){
+	public KanjiSet(List<String> strings){	//constructor to add the kanji from a list of strings
 		this();
 		add(strings);
 	}
-	public KanjiSet(Collection<? extends Character> col){
+	public KanjiSet(Collection<? extends Character> col){	//constructor to add kanji from another collection of characters
 		this();
 		addAll(col);
 	}
@@ -42,8 +41,10 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
-	
-
+	/*
+	 * add a character to the set
+	 * Overridden to allow only Kanji characters to be added to the set
+	 */
 	@Override
 	public boolean add(Character c){
 		if (KanjiChar.isKanji(c))
@@ -53,28 +54,22 @@ public class KanjiSet extends HashSet<Character>{
 	}
 	
 	
-	@Override
-	public boolean addAll(Collection<? extends Character> col){
-		boolean changed = false;
-		for (Character c: col)
-			changed = add(c) || changed;
-		return changed;
-	}
-	
-	
-	
+	/*
+	 * adds all the kanji in a given string to the set
+	 */
 	public boolean add(String string){
-
 		boolean changed = false;
-		char[] charArray = string.toCharArray();
-		for (Character c: charArray)
+		for (Character c: string.toCharArray())
 			changed = add(c) || changed;
 		
 		return changed;
 	}
 	
+	
+	/*
+	 * for each string in the list of strings, adds all the kanji in the string to the set
+	 */
 	public boolean add(List<String> strings){
-		
 		boolean changed = false;
 		for (String s: strings)
 			changed = add(s) || changed;
@@ -92,12 +87,9 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
-	
-	
-	
-	
-	
-	
+	/*
+	 * returns (as a String) a report containing the size of the set and the contents of the set
+	 */
 	public String getReport(){
 		String report = "";
 		
@@ -110,6 +102,9 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 	
+	/*
+	 * returns all of the set's kanji in a sorted order
+	 */
 	public String toString(){
 		
 		//sort here
@@ -118,7 +113,6 @@ public class KanjiSet extends HashSet<Character>{
 		
 		String listString = "";
 		for (Character c: uniqueKList) listString += c + DEFAULT_UNIQUE_KANJI_SPLITTER;
-		
 			
 		return listString;
 	}
