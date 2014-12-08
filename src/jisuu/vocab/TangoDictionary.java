@@ -6,22 +6,36 @@ import java.util.TreeMap;
 
 import jisuu.kanji.KanjiSet;
 
+
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * TangoDictionary
+ * Represents a dictionary of vocab cards
+ * 
+ * derived class of ArrayList<Tango>
+ * added functionality:	get a list of the fronts of all the cards
+ * 						get the set of unique kanji from the dictionary's cards
+ * 						check for conflicts among the vocab cards
+ * 						get statistics for the files the vocab cards were loaded from
+ * 						
+ * 
+ */
 public class TangoDictionary extends ArrayList<Tango>{
 	private static final long serialVersionUID = -6432715930946054694L;
 	
 	
 	
-	
 	private final DupeFinder mDupeFinder;
-	
-	
 	
 	public TangoDictionary(){
 		//associates a dupe finder with this dictionary
 		mDupeFinder = new DupeFinder(this);
 	}
-	
-	
 	
 	
 	
@@ -35,7 +49,6 @@ public class TangoDictionary extends ArrayList<Tango>{
 	public KanjiSet getKanjiSet(){
 		return new KanjiSet(getFronts());
 	}
-	
 	
 	
 	

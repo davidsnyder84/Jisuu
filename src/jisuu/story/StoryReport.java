@@ -2,6 +2,23 @@ package jisuu.story;
 
 import jisuu.kanji.KanjiSet;
 
+
+
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * StoryReport
+ * Stores information gained from reading a story file
+ * 
+ * Data: set of unique kanji in the story
+ * 		 number of lines read
+ * 		 the name of the file the story was read from
+ * 
+ */
 public class StoryReport {
 	
 	

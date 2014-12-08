@@ -9,15 +9,27 @@ import java.util.Scanner;
 import jisuu.vocab.Tango;
 import jisuu.vocab.TangoDictionary;
 
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * FileLoaderVocab
+ * class for reading and returning vocab from the dictionary files
+ * 
+ */
 public class FileLoaderVocab {
 	
-	
+	//directory containing the dictionary files
 	public static final String VOCABLIST_DIR = "vocabLists";
 	
 	
 	
+	
 	/*
-	 * loads vocab from all files in the vocab directory, and returns it all in a list
+	 * loads vocab from ALL files in the vocab directory, and returns it all in a list
 	 */
 	public static TangoDictionary loadAllVocabFiles(){
 		
@@ -54,7 +66,7 @@ public class FileLoaderVocab {
 	
 	
 	/*
-	 * loads all the vocab from the given file, and returns it as a list
+	 * loads all the vocab from a single given file, and returns it as a list
 	 */
 	public static TangoDictionary loadVocabFromFile(File inputFile){
 
@@ -95,9 +107,6 @@ public class FileLoaderVocab {
 		fileReader.close();
 		return dict;
 	}
-	
-	
-	
 	
 	
 	

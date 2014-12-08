@@ -7,6 +7,17 @@ import java.util.HashSet;
 
 
 
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * KanjiChar
+ * a class containing constants and methods relating to kanji characters
+ * 
+ */
 public class KanjiChar {
 	
 	//a string containing all kanji

@@ -8,6 +8,17 @@ import java.util.Scanner;
 import jisuu.kanji.KanjiSet;
 import jisuu.story.StoryReport;
 
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * FileLoaderStory
+ * class for reading and returning information from the story file
+ * 
+ */
 public class FileLoaderStory {
 	
 	

@@ -8,6 +8,21 @@ import java.util.List;
 
 import jisuu.kanji.KanjiChar;
 
+
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * KanjiSet
+ * Represents a set of unique kanji characters
+ * 
+ * derived class of HashSet<Character>
+ * 		modifed so only kanji can be added to the set (no other characters)
+ * 
+ */
 public class KanjiSet extends HashSet<Character>{
 	private static final long serialVersionUID = -3252352541857029942L;
 	

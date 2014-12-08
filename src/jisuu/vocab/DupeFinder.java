@@ -5,6 +5,18 @@ import java.util.List;
 
 import jisuu.vocab.Dupe;
 
+
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * DupeFinder
+ * a helper class used to find dupes within a vocab dictionary
+ * 
+ */
 public class DupeFinder {
 	
 

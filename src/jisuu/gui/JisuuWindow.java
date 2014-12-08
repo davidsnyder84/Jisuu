@@ -16,6 +16,18 @@ import jisuu.story.StoryReport;
 import jisuu.vocab.TangoDictionary;
 
 
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * JisuuWindow
+ * The main GUI window of the program
+ * 
+ * 
+ */
 public class JisuuWindow extends JFrame{
 	private static final long serialVersionUID = 5106812075459526627L;
 	

@@ -7,8 +7,22 @@ import jisuu.kanji.KanjiSet;
 import jisuu.story.StoryReport;
 import jisuu.vocab.TangoDictionary;
 
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * Jisuu (main class of the program)
+ * 
+ * Program descrtipion
+ * 		loads vocab from all the files in the dictionary directory
+ * 		reads information from story.txt
+ * 		displays reports for all of the information read (GUI)
+ * 
+ */
 public class Jisuu {
-	
 	
 	
 	private JisuuWindow mWindow;

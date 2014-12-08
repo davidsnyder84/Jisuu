@@ -2,6 +2,23 @@ package jisuu.vocab;
 
 import jisuu.vocab.Tango;
 
+
+
+
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * Dupe
+ * Used to represent an incident where duplicate entries for the same vocab card are found
+ * Immutable class
+ * 
+ * Data: 2 vocab cards (the cards involved in the dupe)
+ * 		 a flag indicating if the dupe involves a conflicting definitions (there is no conflict if the cards have the same definitions)
+ * 
+ */
 public class Dupe {
 	
 	private final Tango mTango1;

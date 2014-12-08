@@ -1,7 +1,21 @@
 package jisuu.vocab;
 
 
-
+/*
+ * CS697B Project
+ * David Snyder
+ * A247A342
+ * 
+ * 
+ * Tango
+ * Represents a single vocab card (単語) from a dictionary
+ * Immutable class
+ * 
+ * Data: a string for the vocab word (front of the card)
+ * 		 string for the definition (back of the card)
+ * 		 string naming the file of origin
+ * 
+ */
 public class Tango implements Comparable<Tango>{
 	
 	
