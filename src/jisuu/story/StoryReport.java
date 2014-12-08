@@ -11,6 +11,7 @@ public class StoryReport {
 	
 	
 	
+	//to create the report, requires a kanji set, number of lines read, and the filename
 	public StoryReport(KanjiSet kanji, int lines, String filename){
 		if (kanji != null)
 			mKanjiSet = kanji;

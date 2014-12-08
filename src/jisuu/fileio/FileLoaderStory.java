@@ -52,6 +52,7 @@ public class FileLoaderStory {
 		
 		return storyReport;
 	}
+	//overloeaded for String filename instead of a File object
 	public static StoryReport loadStoryFromFile(){return loadStoryFromFile(STORY_FILENAME);}
 	public static StoryReport loadStoryFromFile(String inputFileString){return loadStoryFromFile(new File(inputFileString));}
 	

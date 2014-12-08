@@ -18,7 +18,7 @@ public class KanjiSet extends HashSet<Character>{
 	
 	
 
-	public KanjiSet(){
+	public KanjiSet(){	//default constructor, empty set
 		super();
 	}
 	public KanjiSet(List<String> strings){	//constructor to add the kanji from a list of strings

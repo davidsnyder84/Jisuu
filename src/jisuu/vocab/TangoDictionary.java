@@ -16,13 +16,10 @@ public class TangoDictionary extends ArrayList<Tango>{
 	
 	
 	
-	
-	
-	
 	public TangoDictionary(){
+		//associates a dupe finder with this dictionary
 		mDupeFinder = new DupeFinder(this);
 	}
-	
 	
 	
 	

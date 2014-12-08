@@ -13,6 +13,7 @@ public class Tango implements Comparable<Tango>{
 	
 	
 	
+	//constructor takes a front, a back, and a filename of origin (optional)
 	public Tango(String front, String back, String fileOrigin){
 		mFront = front;
 		mBack = back;

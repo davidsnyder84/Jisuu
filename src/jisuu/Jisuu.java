@@ -12,10 +12,14 @@ public class Jisuu {
 	
 	
 	private JisuuWindow mWindow;
+//	private TangoDictionary mDict = null;
+//	private StoryReport mStory = null;
 	
 	
 	public Jisuu(){	//constructor creates a window
 		mWindow = new JisuuWindow();
+//		mDict = null;
+//		mStory = null;
 	}
 	
 	

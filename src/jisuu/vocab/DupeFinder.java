@@ -11,6 +11,7 @@ public class DupeFinder {
 	private final TangoDictionary mDict;
 	
 	
+	//contructor requires a dictionary to be associated with the DupeFinder object
 	public DupeFinder(TangoDictionary dict){
 		if (dict != null)
 			mDict = dict;
@@ -25,10 +26,8 @@ public class DupeFinder {
 	
 	
 	
-	
-	
 	/*
-	 * returns a list of all conflicts
+	 * returns a list of all conflicts in the associated dictionary
 	 */
 	public List<Dupe> findAllConflicts(){
 		

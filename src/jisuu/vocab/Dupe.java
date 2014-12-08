@@ -10,6 +10,7 @@ public class Dupe {
 	private final boolean mIsConflict;
 
 	
+	//constructor takes the 2 cards involved in the dupe, and a flag for whether or not it is a conflicting dupe 
 	public Dupe(boolean isConflict, Tango t1, Tango t2){
 		mTango1 = t1; mTango2 = t2;
 		mIsConflict = isConflict;
@@ -30,7 +31,9 @@ public class Dupe {
 	
 	
 	
-	
+	/*
+	 * returns true if the dupe is a conflicting dupe
+	 */
 	public boolean isConflict(){return mIsConflict;}
 	
 	
