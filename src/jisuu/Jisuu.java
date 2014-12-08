@@ -26,14 +26,14 @@ public class Jisuu {
 	
 	
 	private JisuuWindow mWindow;
-//	private TangoDictionary mDict = null;
-//	private StoryReport mStory = null;
+	private TangoDictionary mDict;
+	private StoryReport mStory;
 	
 	
 	public Jisuu(){	//constructor creates a window
 		mWindow = new JisuuWindow();
-//		mDict = null;
-//		mStory = null;
+		mDict = null;
+		mStory = null;
 	}
 	
 	
@@ -45,27 +45,23 @@ public class Jisuu {
 	 */
 	public void launch(){
 		
-		TangoDictionary dict = null;
-		StoryReport story = null;
-		KanjiSet dictKanji, storyKanji, unkownKanji;
-		
-		
 		//load dictionaries
-		dict = FileLoaderVocab.loadAllVocabFiles();
+		mDict = FileLoaderVocab.loadAllVocabFiles();
 		
 		//load story
-		story = FileLoaderStory.loadStoryFromFile();
+		mStory = FileLoaderStory.loadStoryFromFile();
 		
 		//if one of them failed to load, use an empty dictionary or story
-		if (dict == null) dict = new TangoDictionary();
-		if (story == null) story = new StoryReport();
+		if (mDict == null) mDict = new TangoDictionary();
+		if (mStory == null) mStory = new StoryReport();
 		
 		
 		
 		
 		//get the kanji sets from the dictionary and story
-		dictKanji = dict.getKanjiSet();
-		storyKanji = story.getKanjiSet();
+		KanjiSet dictKanji, storyKanji, unkownKanji;
+		dictKanji = mDict.getKanjiSet();
+		storyKanji = mStory.getKanjiSet();
 
 		//find unkown kanji (kanji which are in the story. but not in the dictionary)
 		unkownKanji = new KanjiSet(storyKanji);
@@ -73,7 +69,7 @@ public class Jisuu {
 		
 		
 		//display reports
-		displayReport(dict, story, dictKanji, storyKanji, unkownKanji);
+		displayReport(dictKanji, storyKanji, unkownKanji);
 		System.out.println("\n");
 	}
 	
@@ -86,12 +82,12 @@ public class Jisuu {
 	 * displays all of the info
 	 * displays dictionary conflicts, and the kanji sets for the dictionary and story
 	 */
-	public void displayReport(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
+	public void displayReport(KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
 		
 		
 		//print dictionary conflicts
 		System.out.println("\n\n~~~~~Conflicts: ");
-		System.out.println(dict.getConflicts());
+		System.out.println(mDict.getConflicts());
 		
 		//print kanji reports
 		System.out.println("\n\n\n\n");
@@ -108,7 +104,7 @@ public class Jisuu {
 		
 		
 		//display in GUI
-		mWindow.displayInfo(dict, story, dictKanji, storyKanji, unkownKanji);
+		mWindow.displayInfo(mDict, mStory, dictKanji, storyKanji, unkownKanji);
 		mWindow.setVisible(true);
 	}
 	
