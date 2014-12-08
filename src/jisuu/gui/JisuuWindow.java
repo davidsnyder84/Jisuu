@@ -96,7 +96,6 @@ public class JisuuWindow extends JFrame{
 		
 		//pack to make the frame the desired size
 		pack();
-//		displayInfo(null, null, null, null, null);
 	}
 	
 	
@@ -107,25 +106,31 @@ public class JisuuWindow extends JFrame{
 	 */
 	public void displayInfo(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
 		
+		//create the full report string
+		mReport = "";
+		mReport += dict.getFileStats() + "\n";
+		mReport += story.getFileStats() + "\n\n\n";
+		mReport += "~~~~~Conflicts:\n" + dict.getConflicts() + "\n\n\n";
+		mReport += "\n\n~~~~~Dictionary kanji:\n" + dictKanji.toString() + "\n";
+		mReport += "\n\n~~~~~Story kanji:\n" + storyKanji.toString() + "\n";
+		mReport += "\n\n~~~~~Unkown kanji:\n" + unkownKanji.toString() + "\n";
+		
 		panDict.updateInfo(dict);
 		panStats.updateInfo(dict, story);
 		panKanjis.updateInfo(dictKanji, storyKanji, unkownKanji);
+		
+		System.out.println(mReport);
 	}
 	
 	
 	
 	
-	
-	
-	
-	
-	
+	private String mReport = "";
 	
 	private class ReportButtonListener implements ActionListener{
 		
-		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			mReport = "k";
 		}
 	}
 	
