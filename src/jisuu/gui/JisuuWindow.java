@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
+import jisuu.fileio.FileWriterReport;
 import jisuu.kanji.KanjiSet;
 import jisuu.story.StoryReport;
 import jisuu.vocab.TangoDictionary;
@@ -25,6 +27,8 @@ import jisuu.vocab.TangoDictionary;
  * 
  * JisuuWindow
  * The main GUI window of the program
+ * 		displays reports and statistics
+ * 		presents the user with a button to save the reports if they want
  * 
  * 
  */
@@ -35,26 +39,27 @@ public class JisuuWindow extends JFrame{
 	
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Begin Display Constants~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	
-	private static final int WINDOW_WIDTH = 796, WINDOW_HEIGHT = 600;
+	private static final int WINDOW_WIDTH = 796, WINDOW_HEIGHT = 650;
 	
 	private static final Color COLOR_TRANSPARENT = new Color(0, 0, 0, 0);
 	
-	private static final String WINDOW_TITLE = "Jisuu";
+	private static final String WINDOW_TITLE = "字数 Jisuu";
 	private static final String TITLE_KANJI_DICT = "Dictionary Kanji:", TITLE_KANJI_STORY = "Story Kanji:", TITLE_KANJI_UNK = "Unknown Kanji:";
+	private static final String SAVED_NOTIFICATION = "...Report Saved", SAVED_FAIL_NOTIFICATION = "!!!Error while saving";
 	
 	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Display Constants~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	
 	
 	
 	
-	
 	//panels
+	private StatsPanel panStats;
 	private DictionaryPanel panDict;
 	private TripleKanjiPanel panKanjis;
 	
-	private StatsPanel panStats;
-	
-	
+	//a string containing a report, and a button to save the report
+	private String mReport = "";
+	private JButton buttonReport;
 	
 	
 	
@@ -64,6 +69,7 @@ public class JisuuWindow extends JFrame{
 		
 		//set attributes for frame
 		setTitle(WINDOW_TITLE);
+		setLocation(100, 100);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
@@ -94,6 +100,14 @@ public class JisuuWindow extends JFrame{
 		contentPane.add(panKanjis);
 		
 		
+		//initialize and add report button
+		buttonReport = new JButton("Save Report");
+		buttonReport.addActionListener(new ReportButtonListener());
+		buttonReport.setSize(187,35);
+		buttonReport.setLocation(580,600);
+		contentPane.add(buttonReport);
+		
+		
 		//pack to make the frame the desired size
 		pack();
 	}
@@ -106,10 +120,10 @@ public class JisuuWindow extends JFrame{
 	 */
 	public void displayInfo(TangoDictionary dict, StoryReport story, KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
 		
-		//create the full report string
+		//create a full report string (to be saved to a file if the user desires)
 		mReport = "";
 		mReport += dict.getFileStats() + "\n";
-		mReport += story.getFileStats() + "\n\n\n";
+		mReport += story.getFileStats() + "\n\n\n\n\n";
 		mReport += "~~~~~Conflicts:\n" + dict.getConflicts() + "\n\n\n";
 		mReport += "\n\n~~~~~Dictionary kanji:\n" + dictKanji.toString() + "\n";
 		mReport += "\n\n~~~~~Story kanji:\n" + storyKanji.toString() + "\n";
@@ -118,28 +132,39 @@ public class JisuuWindow extends JFrame{
 		panDict.updateInfo(dict);
 		panStats.updateInfo(dict, story);
 		panKanjis.updateInfo(dictKanji, storyKanji, unkownKanji);
-		
-		System.out.println(mReport);
 	}
 	
 	
 	
 	
-	private String mReport = "";
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * action listener for the "save report" button
+	 * in response to the button click, writes the report to a file
+	 */
 	private class ReportButtonListener implements ActionListener{
 		
 		public void actionPerformed(ActionEvent e) {
-			mReport = "k";
+			
+			//try to write the report to the file
+			boolean success = FileWriterReport.writeReportToFile(mReport);
+			
+			//display result
+			if (success)
+				buttonReport.setText(SAVED_NOTIFICATION);
+			else
+				buttonReport.setText(SAVED_FAIL_NOTIFICATION);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
