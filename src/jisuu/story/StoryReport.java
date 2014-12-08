@@ -41,7 +41,7 @@ public class StoryReport {
 	public StoryReport(){	//creates an empty report
 		mKanjiSet = new KanjiSet();
 		mLines = 0;
-		mFilename = "";
+		mFilename = "story";
 	}
 	
 	
