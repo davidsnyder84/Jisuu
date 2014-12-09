@@ -29,11 +29,14 @@ public class Jisuu {
 	private TangoDictionary mDict;
 	private StoryReport mStory;
 	
+	private KanjiSet mDictKanji, mStoryKanji, mUnkownKanji;
+	
 	
 	public Jisuu(){	//constructor creates a window
 		mWindow = new JisuuWindow();
 		mDict = null;
 		mStory = null;
+		mDictKanji = mStoryKanji = mUnkownKanji = null;
 	}
 	
 	
@@ -59,17 +62,16 @@ public class Jisuu {
 		
 		
 		//get the kanji sets from the dictionary and story
-		KanjiSet dictKanji, storyKanji, unkownKanji;
-		dictKanji = mDict.getKanjiSet();
-		storyKanji = mStory.getKanjiSet();
+		mDictKanji = mDict.getKanjiSet();
+		mStoryKanji = mStory.getKanjiSet();
 
-		//find unkown kanji (kanji which are in the story. but not in the dictionary)
-		unkownKanji = new KanjiSet(storyKanji);
-		unkownKanji.removeAll(dictKanji);
+		//find unkown kanji (kanji which are in the story, but not in the dictionary)
+		mUnkownKanji = new KanjiSet(mStoryKanji);
+		mUnkownKanji.removeAll(mDictKanji);
 		
 		
 		//display reports
-		displayReport(dictKanji, storyKanji, unkownKanji);
+		displayReport();
 		System.out.println("\n");
 	}
 	
@@ -82,29 +84,27 @@ public class Jisuu {
 	 * displays all of the info
 	 * displays dictionary conflicts, and the kanji sets for the dictionary and story
 	 */
-	public void displayReport(KanjiSet dictKanji, KanjiSet storyKanji, KanjiSet unkownKanji){
-		
+	private void displayReport(){
 		
 		//print dictionary conflicts
 		System.out.println("\n\n~~~~~Conflicts: ");
 		System.out.println(mDict.getConflicts());
+		System.out.println("\n\n\n\n");
+		
 		
 		//print kanji reports
-		System.out.println("\n\n\n\n");
-
 		System.out.println("\n\n~~~~~Dictionary kanji: ");
-		System.out.println(dictKanji.getReport());
+		System.out.println(mDictKanji.getReport());
 		
 		System.out.println("\n\n~~~~~Story kanji: ");
-		System.out.println(storyKanji.getReport());
+		System.out.println(mStoryKanji.getReport());
 		
 		System.out.println("\n\n~~~~~Unkown kanji (absent from the dictionaries): ");
-		System.out.println(unkownKanji.getReport());
-		
+		System.out.println(mUnkownKanji.getReport());
 		
 		
 		//display in GUI
-		mWindow.displayInfo(mDict, mStory, dictKanji, storyKanji, unkownKanji);
+		mWindow.displayInfo(mDict, mStory, mDictKanji, mStoryKanji, mUnkownKanji);
 		mWindow.setVisible(true);
 	}
 	

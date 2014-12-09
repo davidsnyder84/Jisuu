@@ -63,6 +63,18 @@ public class TangoDictionary extends ArrayList<Tango>{
 	
 	
 	
+	/*
+	 * returns the vocab card for the first instance of the word found in the dictionary
+	 */
+	public Tango findWord(String  word){
+		for (Tango t: this)
+			if (t.getFront().equalsIgnoreCase(word))
+				return t;
+		
+		return null;
+	}
+	
+	
 	
 	
 	
