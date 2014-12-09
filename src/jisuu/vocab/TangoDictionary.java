@@ -18,7 +18,8 @@ import jisuu.kanji.KanjiSet;
  * Represents a dictionary of vocab cards
  * 
  * derived class of ArrayList<Tango>
- * added functionality:	get a list of the fronts of all the cards
+ * added functionality:	look up a word in the dictionary
+ * 						get a list of the fronts of all the cards
  * 						get the set of unique kanji from the dictionary's cards
  * 						check for conflicts among the vocab cards
  * 						get statistics for the files the vocab cards were loaded from

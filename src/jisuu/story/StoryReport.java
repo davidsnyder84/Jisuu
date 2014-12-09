@@ -13,7 +13,8 @@ import jisuu.kanji.KanjiSet;
  * 
  * StoryReport
  * Stores information gained from reading a story file
- * 
+ * Immutable class 
+ *
  * Data: set of unique kanji in the story
  * 		 number of lines read
  * 		 the name of the file the story was read from

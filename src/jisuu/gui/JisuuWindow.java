@@ -69,7 +69,7 @@ public class JisuuWindow extends JFrame{
 		
 		//set attributes for frame
 		setTitle(WINDOW_TITLE);
-		setLocation(100, 100);
+		setLocation(0, 0);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		

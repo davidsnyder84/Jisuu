@@ -1,8 +1,8 @@
 package jisuu.fileio;
 
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,22 +36,33 @@ public class FileWriterReport {
 		
 		
 		//try to open the file
-		PrintWriter fileWriter;
+		OutputStreamWriter fileWrite;
 		try {
-			fileWriter = new PrintWriter(new FileWriter(filename));
-		} catch (IOException e) {
+			fileWrite = new OutputStreamWriter(new FileOutputStream(filename), "UTF-8");
+		} catch (Exception e) {
 			System.out.println("---Error creating file " + filename + " for writing---");
+			e.printStackTrace();
 			return false;
 		}
 		
-		
 		//write the report to the file
-		fileWriter.println(reportContents);
+		try {
+			fileWrite.write(reportContents);
+			System.out.println("...Report saved to " + filename);
+		} catch (IOException e) {
+			System.out.println("---Error writing to file " + filename + "---");
+			e.printStackTrace();
+		}
 		
 		
-		//close file and return true (success)
-		System.out.println("...Report saved to " + filename);
-		fileWriter.close();
+		//close file and return true if successful
+		try {
+			fileWrite.close();
+		} catch (IOException e) {
+			System.out.println("---Error closing file " + filename + "---");
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 	}
 	
