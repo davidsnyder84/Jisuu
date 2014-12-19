@@ -124,7 +124,7 @@ public class JisuuWindow extends JFrame{
 		mReport = "";
 		mReport += dict.getFileStats() + "\n";
 		mReport += story.getFileStats() + "\n\n\n\n\n";
-		mReport += "~~~~~Conflicts: " + dict.getConflicts() + "\n\n\n";
+		mReport += "~~~~~Conflicts: " + dict.getAllDupes() + "\n\n\n";
 		mReport += "\n\n~~~~~Dictionary kanji: \n" + dictKanji.size() + "\n" + dictKanji.toString() + "\n";
 		mReport += "\n\n~~~~~Story kanji: \n" + storyKanji.size() + "\n" + storyKanji.toString() + "\n";
 		mReport += "\n\n~~~~~Unkown kanji: \n" + unkownKanji.size() + "\n" + unkownKanji.toString() + "\n";
@@ -267,7 +267,7 @@ public class JisuuWindow extends JFrame{
 			else pDict = new TangoDictionary();
 			
 			//set conflicts
-			txtConflicts.setText(pDict.getConflicts());
+			txtConflicts.setText(pDict.getAllDupes());
 		}
 	}
 

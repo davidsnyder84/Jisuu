@@ -95,6 +95,15 @@ public class TangoDictionary extends ArrayList<Tango>{
 	
 	
 	
+	//returns all conflicts as a string
+	public String getAllDupes(){
+		return mDupeFinder.getDupesAsString();
+	}
+	
+	
+	
+	
+	
 	/*
 	 * returns some statistics for the file(s) the dictionary was loaded from
 	 */

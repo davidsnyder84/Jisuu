@@ -19,7 +19,7 @@ import jisuu.vocab.Tango;
  * 		 a flag indicating if the dupe involves a conflicting definitions (there is no conflict if the cards have the same definitions)
  * 
  */
-public class Dupe {
+public class Dupe implements Comparable<Dupe>{
 	
 	private final Tango mTango1;
 	private final Tango mTango2;
@@ -62,13 +62,27 @@ public class Dupe {
 	 */
 	public String toString(){
 		String dString = "";
-		if (mIsConflict) dString += "!!!!!Conflict!!!!!\n";
-		else dString += "Duplicate\n";
+		if (mIsConflict) dString += "!!!!!!!!!!Conflict!!!!!!!!!!\n";
+		else dString += ",,,,,Duplicate\n";
 		
 		dString += "\t" + mTango1.toString() + "\n";
 		dString += "\t" + mTango2.toString() + "\n";
 		
 		return dString;
 	}
+	
+	@Override
+	public int compareTo(Dupe other) {
+		
+		//compare by type (duplicate vs conflict)
+		if (Boolean.compare(other.mIsConflict, mIsConflict) != 0)
+			return Boolean.compare(other.mIsConflict, mIsConflict);
+		
+		//if the dupes are the same type (both duplicate, or both conflict), compare by name
+		return mTango1.compareTo(other.mTango1);
+	}
+	
+	
+	
 	
 }

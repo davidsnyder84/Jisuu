@@ -1,6 +1,7 @@
 package jisuu.vocab;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import jisuu.vocab.Dupe;
@@ -36,6 +37,46 @@ public class DupeFinder {
 	
 	
 	
+	/*
+	 * returns a list of all conflicts in the associated dictionary
+	 */
+	public List<Dupe> findAllDupes(){
+		
+		List<Dupe> dupes = new ArrayList<Dupe>();
+		
+		for (int curr = 0; curr < mDict.size() - 1; curr++)
+			if (mDict.get(curr).equals(mDict.get(curr + 1)))
+				dupes.add(new Dupe(
+						mDict.get(curr).conflictsWith(mDict.get(curr + 1)), 
+						mDict.get(curr), 
+						mDict.get(curr + 1))
+				);
+
+		Collections.sort(dupes);
+		return dupes;
+	}
+	
+	public String getDupesAsString(){
+		String dupesString = "";
+
+		
+		List<Dupe> dupes = findAllDupes();
+		
+		if (dupes.isEmpty())
+			dupesString = "No dupes found!";
+		else
+			for (Dupe d: dupes)
+				dupesString += d.toString();
+		
+		return dupesString;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/*
@@ -49,6 +90,7 @@ public class DupeFinder {
 			if (mDict.get(curr).conflictsWith(mDict.get(curr + 1)))
 				conflicts.add(new Dupe(true, mDict.get(curr), mDict.get(curr + 1)));
 		
+		Collections.sort(conflicts);
 		return conflicts;
 	}
 	
@@ -73,7 +115,6 @@ public class DupeFinder {
 		else
 			for (Dupe d: conflicts)
 				conflictsString += d.toString();
-		
 		
 		return conflictsString;
 	}
