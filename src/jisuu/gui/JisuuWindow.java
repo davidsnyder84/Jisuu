@@ -124,10 +124,10 @@ public class JisuuWindow extends JFrame{
 		mReport = "";
 		mReport += dict.getFileStats() + "\n";
 		mReport += story.getFileStats() + "\n\n\n\n\n";
-		mReport += "~~~~~Conflicts:\n" + dict.getConflicts() + "\n\n\n";
-		mReport += "\n\n~~~~~Dictionary kanji:\n" + dictKanji.toString() + "\n";
-		mReport += "\n\n~~~~~Story kanji:\n" + storyKanji.toString() + "\n";
-		mReport += "\n\n~~~~~Unkown kanji:\n" + unkownKanji.toString() + "\n";
+		mReport += "~~~~~Conflicts: " + dict.getConflicts() + "\n\n\n";
+		mReport += "\n\n~~~~~Dictionary kanji: \n" + dictKanji.size() + "\n" + dictKanji.toString() + "\n";
+		mReport += "\n\n~~~~~Story kanji: \n" + storyKanji.size() + "\n" + storyKanji.toString() + "\n";
+		mReport += "\n\n~~~~~Unkown kanji: \n" + unkownKanji.size() + "\n" + unkownKanji.toString() + "\n";
 		
 		panDict.updateInfo(dict);
 		panStats.updateInfo(dict, story);
